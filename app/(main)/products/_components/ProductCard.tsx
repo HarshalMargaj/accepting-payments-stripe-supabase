@@ -16,8 +16,6 @@ export default function ProductCard({ product }: ProductCardProps) {
 	const queryClient = useQueryClient();
 	const { data: cartItems } = useCartItemsQuery();
 
-	console.log(cartItems);
-
 	const handleAddToCart = async () => {
 		const result = await axios.post(`/api/cart/items`, {
 			productId: product.id,

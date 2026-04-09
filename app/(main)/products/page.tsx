@@ -1,19 +1,15 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
 import ProductGrid from "./_components/ProductGrid";
-import axios from "axios";
+import { useSearchParams } from "next/navigation";
+import { useProductSearch } from "@/hooks/useProductSearch";
 
 const ProductsPage = () => {
-	const fetchProducts = async () => {
-		const products = await axios.get("/api/products");
-		return products.data;
-	};
+	const searchParams = useSearchParams();
+	const query = searchParams.get("q") || "";
+	const { data: products = [] } = useProductSearch(query as string);
 
-	const { data: products = [] } = useQuery({
-		queryKey: ["products"],
-		queryFn: fetchProducts,
-	});
+	console.log("searched products: ", products);
 
 	return (
 		<div>

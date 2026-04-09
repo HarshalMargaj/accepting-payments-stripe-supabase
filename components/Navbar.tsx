@@ -6,13 +6,9 @@ import { useRouter } from "next/navigation";
 import { useCartItemsQuery } from "@/hooks/useCartItemsQuery";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "./ui/button";
+import SearchInput from "./SearchInput";
 
-interface NavbarProps {
-	searchQuery?: string;
-	onSearchChange?: (query: string) => void;
-}
-
-export default function Navbar({ searchQuery, onSearchChange }: NavbarProps) {
+export default function Navbar() {
 	const router = useRouter();
 	const { user, isSignedIn } = useUser();
 	const { data: cartItems } = useCartItemsQuery();
@@ -37,13 +33,7 @@ export default function Navbar({ searchQuery, onSearchChange }: NavbarProps) {
 								size={16}
 								className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400"
 							/>
-							<input
-								type="text"
-								placeholder="Search fresh vegetables..."
-								value={searchQuery}
-								onChange={e => onSearchChange(e.target.value)}
-								className="w-full pl-10 pr-4 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-							/>
+							<SearchInput />
 						</div>
 					</div>
 
