@@ -9,8 +9,6 @@ const ProductsPage = () => {
 	const query = searchParams.get("q") || "";
 	const { data: products = [] } = useProductSearch(query as string);
 
-	console.log("searched products: ", products);
-
 	return (
 		<div>
 			<ProductGrid products={products} />

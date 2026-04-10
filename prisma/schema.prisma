@@ -14,8 +14,9 @@ model Product {
   description String
   price       Int
   rating      Float
-  reviewCount Int
+  review_count Int
   image       String
+  slug        String    @unique
 
   cartItems    CartItem[]
   orderItems   OrderItem[]

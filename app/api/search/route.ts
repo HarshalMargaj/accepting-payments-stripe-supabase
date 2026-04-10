@@ -21,8 +21,20 @@ export async function GET(req: Request) {
 				description, 
 				price, 
 				rating, 
-				"reviewCount", 
+				review_count, 
 				image, 
+				ts_headline(
+				'english',
+				name,
+				websearch_to_tsquery('english',${query}),
+				'StartSel=<mark>, StopSel=</mark>'
+				) as highlighted_name,
+				ts_headline(
+				'english',
+				description,
+				websearch_to_tsquery('english',${query}),
+				'StartSel=<mark>, StopSel=</mark>'
+				) as highlighted_description,
 				ts_rank(
 					search_vector,
 					websearch_to_tsquery('english', ${query})
