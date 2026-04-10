@@ -51,7 +51,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 	return (
 		<Link href={`/products/${product.slug}`}>
-			<div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-zinc-100 hover:border-emerald-200 transition-all duration-300 flex flex-col h-120">
+			<div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-zinc-100 hover:border-emerald-200 transition-all duration-300 flex flex-col h-130">
 				<div className="relative overflow-hidden bg-linear-to-br from-emerald-50 to-green-100">
 					<Image
 						src={product.image}

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDebounce } from "use-debounce";
 
 export const searchProducts = async (query: string) => {
-	const res = await axios.get(`/api/search?q=${query}`);
+	const res = await axios.get(`/api/products?q=${query}`);
 
 	return res.data;
 };
