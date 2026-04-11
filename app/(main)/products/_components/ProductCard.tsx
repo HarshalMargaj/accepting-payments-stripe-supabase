@@ -84,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 					</div>
 
 					{/* Description */}
-					<p className="text-zinc-500 text-xs leading-relaxed line-clamp-2 flex-1 mb-4">
+					<div className="text-zinc-500 text-xs leading-relaxed line-clamp-2 flex-1 mb-4">
 						<div
 							className="font-semibold"
 							dangerouslySetInnerHTML={{
@@ -93,7 +93,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 									product.description,
 							}}
 						/>
-					</p>
+					</div>
 
 					<div className="flex items-center justify-between mt-auto">
 						<div>
